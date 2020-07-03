@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title%}About Nerd Hax{% endblock %}
+{% block description%}
+I started this site because I started seeing 
+so many of my nerd heroes and nerd 
+contemporaries acting as fools and getting 
+themselves canceled.
+{% endblock %}
+
+{% block content %}
+<section class="section-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8">
+                <article class="content-item">
+                    <div class="entry-media">
+                        <div class="about-title">
+                            <h2>About Nerd Hax</h2>
+                        </div>
+                        <div class="bubble-line"></div>
+                            <div class="post-content about">
+                                <img src="images/content/about1.jpg" alt="image">
+                                <h2>
+                                    Your mission, if you choose you accept it, 
+                                    is to be your awesome self and engange with 
+                                    other humans in meaningful ways.
+                                </h2>
+                                <p>
+                                    I started this site because I started seeing 
+                                    so many of my nerd heroes and nerd 
+                                    contemporaries acting as fools and getting 
+                                    themselves canceled.
+                                </p>
+                                <p>
+                                    I myself am a socially awkward individual 
+                                    that has more fun staying inside than 
+                                    going out and sociallizing.  Not too long 
+                                    ago, I was a socially awkward individual 
+                                    that was afraid of rejection and 
+                                    desperate to gain the affections of 
+                                    the opposite sex.
+                                </p>
+                                <p>
+                                    Through my journey, I have found a few 
+                                    hacks along the way that have helped me 
+                                    find a woman that I love for the weirdo 
+                                    she is that loves me back for the crazy 
+                                    I am.
+                                </p>
+                                <p>
+                                    This site is a resource, my legacy I leave 
+                                    for all those nerds out there that have 
+                                    no idea how to interact with other people 
+                                    or the opposite sex for that matter.  
+                                    Disclaimer: Not all my hacks may work for 
+                                    you.  You are a unique individual, so 
+                                    part of your journey is really up for you 
+                                    to travel and discover.  How exciting!
+                                </p>
+                            </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-4 sidebar">
+                {% include 'categories-widget.html' %}
+                {% include 'recent-posts-widget.html' %}
+                {% include 'tags-widget.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -22,4 +22,7 @@ urlpatterns = [
     path('',
          TemplateView.as_view(template_name='index/index.html'),
          name='home'),
+    path('about',
+         TemplateView.as_view(template_name='about/about.html'),
+         name='about')
 ]

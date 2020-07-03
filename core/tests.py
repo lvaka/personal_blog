@@ -2,11 +2,17 @@
 from django.test import TestCase
 
 
-class IndexTestCase(TestCase):
-    """Get Index Page."""
+class CoreTestCase(TestCase):
+    """Test Routes."""
 
-    def test_get_route(self):
-        """Get Route and return response 200."""
+    def test_home_route(self):
+        """Get home and return response 200."""
         client = self.client
         response = client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_about_route(self):
+        """Get about and return response 200."""
+        client = self.client
+        response = client.get('/about')
         self.assertEqual(response.status_code, 200)
