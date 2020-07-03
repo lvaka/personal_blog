@@ -1,52 +1,60 @@
+"""Posts Models."""
 from django.db import models
+from django.utils.text import slugify
 
-# Create your models here.
+
 class Category(models.Model):
-	"""
-		Category Model to give Posts a Category
-	"""
-	name = models.CharField(max_length=50, unique=True)
-	parent = models.ForeignKey('self', 
-								on_delete=models.CASCADE, 
-								blank=True, 
-								null=True,
-								related_name='children')
-	class Meta:
-		ordering = ['name']
+    """Category Model to give Posts a Category."""
 
-	def __str__(self):
-		return self.name
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        """How to order category."""
+
+        ordering = ['name']
+
+    def __str__(self):
+        """Category represented by name."""
+        return self.name
+
 
 class Tag(models.Model):
-	"""
-		Model for post tags
-	"""
-	tagname = models.CharField(max_length=25, unique=True)
-	posts = models.ManyToManyField('Post', 
-									related_name='tags')
+    """Model for post tags."""
 
-	def __str__(self):
-		return self.tagname
+    tagname = models.CharField(max_length=25, unique=True)
+    posts = models.ManyToManyField('Post',
+                                   related_name='tags')
+
+    def __str__(self):
+        """Tag represented by name."""
+        return self.tagname
+
 
 class Post(models.Model):
-	"""
-		Blog Post Model
-	"""
-	title = models.CharField(max_length=30, unique=True)
-	description = models.CharField(max_length=160)
-	publish_date = models.DateTimeField()
-	last_modified = models.DateTimeField(auto_now=True)
-	published = models.BooleanField()
-	content = models.TextField()
-	category = models.ForeignKey('Category', 
-								on_delete=models.SET_NULL,
-								blank=True,
-								null=True,
-								related_name='posts')
+    """Blog Post Model."""
 
-	class Meta:
-		ordering = ['last_modified']
+    title = models.CharField(max_length=30, unique=True)
+    slug = models.SlugField()
+    publish_date = models.DateTimeField(blank=True, null=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    content = models.TextField()
+    category = models.ForeignKey('Category',
+                                 on_delete=models.SET_NULL,
+                                 blank=True,
+                                 null=True,
+                                 related_name='posts')
 
-	def __str__(self):
-		return self.title + ' - ' + self.category \
-					if self.category else self.title
+    def save(self, *args, **kwargs):
+        """Slugify before save."""
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
+
+    class Meta:
+        """Order by last modified."""
+
+        ordering = ['last_modified']
+
+    def __str__(self):
+        """Post represented by title and category."""
+        return self.title + ' - ' + self.category \
+            if self.category else self.title

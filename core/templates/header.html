@@ -1,0 +1,38 @@
+<header id="header">
+    <div class="logo" data-bg-image="images/bg-header.jpg">
+        <h1>
+            <a href="/">Nerd Hax</a>
+        </h1>
+        <p>A guide for the socially awkward</p>
+    </div>
+    <div class="menu-container">
+        <div class="container">
+            <div class="row">
+                <div  class="col-md-7">
+                    <nav class="main-nav">
+                        <ul>
+                            <li class="current-menu-item menu-item-has-children">
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li><a href="grid.html">features</a></li>
+                            <li><a href="fullwidth.html">photography</a></li>
+                            <li><a href="single.html">food recipe</a></li>
+                            <li><a href="about.html">about</a></li>
+                            <li><a href="contacts.html">Contact</a></li>
+                        </ul>
+                        <a href="javascript:;" id="close-menu">
+                            <i class="fa fa-close"></i>
+                        </a>
+                    </nav>
+                </div>
+                <div class=" col-md-5 h-search">
+                    <form class="search_form" method="POST">
+                        {% csrf_token %}
+                        <input type="text" name="2" placeholder="Search and hit enter...">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

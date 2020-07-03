@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-content">
+    <div class="container">
+        <div class="row">
+            <div id="posts" class="col-sm-8 col-md-8">
+                <!--Loop through Posts-->
+                <!--Call Through Ajax-->
+            </div>
+            <div class="col-sm-4 sidebar">
+                <div class="widget">
+                    <h3 class="widget-title">Story about me</h3>
+                    <div class="bubble-line"></div>
+
+                    <div class="widget-content">
+                        <img src="images/widget/about.jpg" alt="not image">
+                        <p>Hello, text excerpt from about page.</p>
+                        <div class="widget-more">
+                            <a href="javascript:;" class="button">More story</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget">
+                    <h3 class="widget-title">Category</h3>
+                    <div class="bubble-line"></div>
+                    <div class="widget-content">
+                        <ul>
+                            <li>
+                                <a href="javascript:;">Video &amp; music</a>
+                            </li>
+                            <!-- Loop Through Categories-->
+                        </ul>
+                    </div>
+                </div>
+                <div class="widget">
+                    <h3 class="widget-title"> <a href="javascript:;">Tags</a></h3>
+                    <div class="bubble-line"></div>
+                    <div class="widget-content">
+                        <div class="widget-tags">
+                            <a href="javascript:;">clean</a>
+                            <!--Most often used tags -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
