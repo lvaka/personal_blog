@@ -1,3 +1,5 @@
+"""Register Media models to admin."""
 from django.contrib import admin
+from media import models
 
-# Register your models here.
+admin.site.register(models.Media)

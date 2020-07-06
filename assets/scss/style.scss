@@ -8,3 +8,17 @@
 @import "fonts";
 @import "cloudy";
 @import "welcome";
+
+.img-fluid{
+    width: 100%;
+    height: auto;
+}
+
+.lazy-load{
+    filter: blur(20px);
+    transition: 0.3s;
+
+    &.loaded{
+        filter: blur(0);
+    }
+}

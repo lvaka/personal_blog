@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
+                {% for item in media %}
+                    <div class="col-md-4 mb-3 d-flex align-items-center">
+                        <div>
+                        {{ item.render_lazyload | safe}}
+                        <button class="button copy-code-button"
+                            data-codeid="img-code-{{item.id}}"
+                        >Get Image Code</button>
+                        <textarea hidden id="img-code-{{item.id}}">{{ item.render_lazyload }}</textarea>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

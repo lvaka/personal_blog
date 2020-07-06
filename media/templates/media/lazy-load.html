@@ -1,0 +1,11 @@
+<picture id="img-{{id}}" 
+         class="lazy-load"
+         data-srcset="{{ MEDIA_URL }}{{ full }},
+                      {{ MEDIA_URL }}{{ full_jpeg }},
+                      {{ MEDIA_URL }}{{ mobile }},
+                      {{ MEDIA_URL }}{{ mobile_jpeg }}">
+    <img src='{{ MEDIA_URL }}{{ prev }}' 
+         alt="{{ alt }}" 
+         class="img-fluid"
+         />
+</picture>
