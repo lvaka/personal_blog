@@ -88,7 +88,7 @@ DATABASES = {
         'USER': config('DB_USER', default=''),
         'PASSWORD': config('DB_PASSWORD', default=''),
         'OPTIONS': {
-
+            "unix_socket": config('DB_SOCKET', default='')
         }
     }
 }

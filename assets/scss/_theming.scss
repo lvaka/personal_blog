@@ -1,0 +1,36 @@
+html, body{
+    background-color: $timberwolf;
+}
+
+p, small, span, li, td, a{
+    color: $dark-gray !important;
+}
+
+h1, h2, h3, h4, h5, th{
+    color: $black !important;
+}
+
+a:hover, a:active{
+    color: $auburn !important;
+}
+
+.button{
+    background: $auburn !important;
+    color: #fff !important;
+    &:hover{
+        color: #fff !important;
+        background: $orange !important;
+    }
+}
+.widget .widget-tags a{
+    color: $dark-gray !important;
+    &:hover{
+        color: #fff !important;
+        background: $rhythm !important;
+        border-color: $rhythm !important;
+    }
+}
+
+.bubble-line .left-shape svg path, .bubble-line .right-shape svg path{
+    fill: $timberwolf;
+}

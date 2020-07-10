@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8">
+                <article class="content-item">
+                    <div class="entry-media">
+                        <div class="post-title">
+                            <h2>{{ post.title }}</h2>
+                            <div class="entry-date">
+                                <ul>
+                                    <li>
+                                        <a href="#">{# Link to Category #}
+                                            {{post.category.name}}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        {{ post.publish_date|date:'M j, Y' }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        {% include 'bubble-line.html' %}
+                        <div class="post-content">
+                            {{ post.featured.render_lazyload|safe }}
+                            {{ post.content|safe|linebreaksbr }}
+                        </div>
+                        {% include 'bubble-line.html' %}
+                        <div class="post-footer">
+                            <div class="row">
+                                <div class="col-sm-5 s-tags">
+                                    {% for tag in post.tags.all %}
+                                        <a href="javascript:;">
+                                            {{ tag.tagname }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="col-sm-4 sidebar">
+                {% include 'about-widget.html' %}
+                {% include 'categories-widget.html' %}
+                {% include 'tags-widget.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

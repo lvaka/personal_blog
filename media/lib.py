@@ -18,13 +18,11 @@ def resize_image(image, re_width, width, height, file_format=None):
 def resize_by_w(full, wlimit):
     """Generate full size images."""
     img = Image.open(full)
+    img = img.convert(mode="RGB")
     width, height = img.size
 
-    jpeg = full
     webp = resize_image(img, wlimit, width, height, 'WebP')
-
-    if width > wlimit:
-        jpeg = resize_image(img, wlimit, width, height, 'JPEG')
+    jpeg = resize_image(img, wlimit, width, height, 'JPEG')
 
     return (webp, jpeg)
 
@@ -32,6 +30,7 @@ def resize_by_w(full, wlimit):
 def get_prev(full):
     """Generate preview."""
     img = Image.open(full)
+    img = img.convert(mode="RGB")
     width, height = img.size
 
     prev_img = resize_image(img, 100, width, height, 'JPEG')

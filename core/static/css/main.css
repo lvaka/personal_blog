@@ -11463,103 +11463,115 @@ header#header nav.main-nav.show-menu > ul > li.current-menu-parent > a {
     float: none !important;
   }
 }
-.welcome-cover {
-  background-repeat: no-repeat;
-  background-position: center top;
-  background-size: cover;
-  padding-top: 120px;
-  padding-bottom: 120px;
+html, body {
+  background-color: #D2DAD3;
 }
 
-.welcome-cover h2 {
-  font-family: "Montserrat";
-  font-size: 55px;
-  font-weight: bold;
-  line-height: 65px;
-  color: #84183f;
-  letter-spacing: -2px;
-  margin: 0px;
+p, small, span, li, td, a {
+  color: #070722 !important;
 }
 
-.welcome-cover h4 {
-  font-family: "Montserrat";
-  font-size: 25px;
-  font-weight: bold;
-  letter-spacing: -1px;
-  text-transform: uppercase;
-  color: #b23763;
-  margin: 0px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+h1, h2, h3, h4, h5, th {
+  color: #02020A !important;
 }
 
-.welcome-cover .list {
-  font-size: 16px;
-  line-height: 34px;
-  color: #800b35;
-  margin-bottom: 50px;
+a:hover, a:active {
+  color: #A52422 !important;
 }
 
-.welcome-cover .list strong {
+.button {
+  background: #A52422 !important;
+  color: #fff !important;
+}
+.button:hover {
+  color: #fff !important;
+  background: #D98325 !important;
+}
+
+.widget .widget-tags a {
+  color: #070722 !important;
+}
+.widget .widget-tags a:hover {
+  color: #fff !important;
+  background: #777DA7 !important;
+  border-color: #777DA7 !important;
+}
+
+.bubble-line .left-shape svg path, .bubble-line .right-shape svg path {
+  fill: #D2DAD3;
+}
+
+.loader-header {
+  color: #777DA7 !important;
+}
+
+.lds-ellipsis {
+  display: inline-block;
   position: relative;
-  top: 4px;
-  margin-right: 10px;
+  width: 80px;
+  height: 23px;
 }
 
-.welcome-cover .view-more a {
-  margin-bottom: 10px;
+.lds-ellipsis div {
+  position: absolute;
+  top: 5px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: #777DA7 !important;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 
-@media screen and (max-width: 767px) {
-  .welcome-cover {
-    text-align: right;
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
-.welcome-content .welcome-item a {
-  background-position: left top;
-  background-size: cover;
-  background-repeat: no-repeat;
-  display: block;
-  -webkit-transition: all 1.8s linear;
-  -moz-transition: all 1.8s linear;
-  transition: all 1.8s linear;
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  100% {
+    transform: scale(0);
+    opacity: 1;
+  }
 }
-
-.welcome-content .welcome-item img {
-  width: 100%;
-  border: 5px solid #f1f1f1;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  transition: all 0.25s linear;
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translate(24px, 0);
+    opacity: 1;
+  }
 }
-
-.welcome-content .welcome-item h3 {
-  display: block;
-  text-align: center;
-  font-family: "Montserrat";
-  font-weight: 500;
-  text-transform: uppercase;
-  font-size: 14px;
-  color: #444;
-  margin-top: 40px;
-  margin-bottom: 55px;
-  -webkit-transition: all 0.25s linear;
-  -moz-transition: all 0.25s linear;
-  transition: all 0.25s linear;
-}
-
-.welcome-content .welcome-item:hover a {
-  background-position: left bottom;
-}
-
-.welcome-content .welcome-item:hover img {
-  border-color: #b23763;
-}
-
-.welcome-content .welcome-item:hover h3 {
-  color: #b23763;
-}
-
 .img-fluid {
   width: 100%;
   height: auto;
@@ -11571,4 +11583,10 @@ header#header nav.main-nav.show-menu > ul > li.current-menu-parent > a {
 }
 .lazy-load.loaded {
   filter: blur(0);
+}
+
+#posts-loader {
+  padding: 1rem 2rem;
+  margin: 2rem 0;
+  background: #fff;
 }

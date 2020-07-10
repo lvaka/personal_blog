@@ -1,6 +1,7 @@
 """Posts Models."""
 from django.db import models
 from django.utils.text import slugify
+from media.models import Media
 
 
 class Category(models.Model):
@@ -22,8 +23,6 @@ class Tag(models.Model):
     """Model for post tags."""
 
     tagname = models.CharField(max_length=25, unique=True)
-    posts = models.ManyToManyField('Post',
-                                   related_name='tags')
 
     def __str__(self):
         """Tag represented by name."""
@@ -34,10 +33,19 @@ class Post(models.Model):
     """Blog Post Model."""
 
     title = models.CharField(max_length=30, unique=True)
-    slug = models.SlugField()
+    slug = models.SlugField(editable=False)
+    featured = models.ForeignKey(Media,
+                                 on_delete=models.SET_NULL,
+                                 blank=True,
+                                 null=True,
+                                 related_name='posts')
     publish_date = models.DateTimeField(blank=True, null=True)
     last_modified = models.DateTimeField(auto_now=True)
     content = models.TextField()
+    tags = models.ManyToManyField('Tag',
+                                  blank=True,
+                                  null=True,
+                                  related_name='posts')
     category = models.ForeignKey('Category',
                                  on_delete=models.SET_NULL,
                                  blank=True,
@@ -56,5 +64,5 @@ class Post(models.Model):
 
     def __str__(self):
         """Post represented by title and category."""
-        return self.title + ' - ' + self.category \
+        return self.title + ' - ' + self.category.name \
             if self.category else self.title

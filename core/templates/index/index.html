@@ -4,9 +4,19 @@
 <section class="section-content">
     <div class="container">
         <div class="row">
-            <div id="posts" class="col-sm-8 col-md-8">
+            <div class="col-sm-8 col-md-8 pb-5">
+                <div id="posts">
                 <!--Loop through Posts-->
                 <!--Call Through Ajax-->
+                </div>
+                <div id="posts-loader">
+                    {% include 'loader-anim.html' %}
+                </div>
+                <div id="load-more">
+                    <button class="button" onClick="loadposts()">
+                        Load More...
+                    </button>
+                </div>
             </div>
             <div class="col-sm-4 sidebar">
                 {% include 'about-widget.html' %}
@@ -16,4 +26,10 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  loadposts();
+</script>
 {% endblock %}

@@ -7,7 +7,9 @@
 @import "font-awesome";
 @import "fonts";
 @import "cloudy";
-@import "welcome";
+@import "variables";
+@import "theming";
+@import "loading-anim";
 
 .img-fluid{
     width: 100%;
@@ -21,4 +23,10 @@
     &.loaded{
         filter: blur(0);
     }
+}
+
+#posts-loader{
+    padding: 1rem 2rem;
+    margin: 2rem 0;
+    background: #fff;
 }
