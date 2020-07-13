@@ -22,7 +22,10 @@ urlpatterns = [
     path('post/<slug:slug>', views.post, name='post'),
     path('', views.ajax_posts, name='posts'),
     path('categories', views.ajax_categories, name='categories ajax'),
+    path('tags', views.ajax_tags, name='tags ajax'),
     path('category/<slug:slug>', views.category, name='category'),
+    path('tag/<slug:tag>', views.tag, name='tag'),
     path('recent', views.ajax_recent_posts, name='recent posts'),
     path('category-posts', views.ajax_category_posts, name='category posts'),
+    path('tag-posts', views.ajax_tag_posts, name='tag posts'),
 ]

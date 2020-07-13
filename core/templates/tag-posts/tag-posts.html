@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title%}Posts with tag {{ tag.tagname }} | {% endblock %}
+{% block description %}Read up on articles in the {{ tag.tagname }} tag on Nerd Hax.{% endblock %}
+
+{% block content %}
+<section class="section-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 pb-5">
+                <div class="header-bkg">
+                    <h1>
+                        <strong>Posts with tag {{ tag.name }}</strong>
+                    </h1>
+                </div>
+                <div id="posts">
+                <!--Loop through Posts-->
+                <!--Call Through Ajax-->
+                </div>
+                <div id="posts-loader">
+                    {% include 'loader-anim.html' %}
+                </div>
+                <div id="load-more">
+                    <button class="button" onClick="loadcatposts('{{ tag.tagname }}')">
+                        Load More...
+                    </button>
+                </div>
+            </div>
+            <div class="col-sm-4 sidebar">
+                {% include 'about-widget.html' %}
+                {% include 'categories-widget.html' %}
+                {% include 'recent-posts-widget.html' %}
+                {% include 'tags-widget.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  loadtagposts('{{ tag.tagname }}');
+</script>
+{% endblock %}
