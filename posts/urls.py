@@ -21,4 +21,8 @@ from posts import views
 urlpatterns = [
     path('post/<slug:slug>', views.post, name='post'),
     path('', views.ajax_posts, name='posts'),
+    path('categories', views.ajax_categories, name='categories ajax'),
+    path('category/<slug:slug>', views.category, name='category'),
+    path('recent', views.ajax_recent_posts, name='recent posts'),
+    path('category-posts', views.ajax_category_posts, name='category posts'),
 ]

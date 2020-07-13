@@ -11463,6 +11463,10 @@ header#header nav.main-nav.show-menu > ul > li.current-menu-parent > a {
     float: none !important;
   }
 }
+/* Small devices (landscape phones, 544px and up) */
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+/* Large devices (desktops, 992px and up) */
+/* Extra large devices (large desktops, 1200px and up) */
 html, body {
   background-color: #D2DAD3;
 }
@@ -11589,4 +11593,23 @@ a:hover, a:active {
   padding: 1rem 2rem;
   margin: 2rem 0;
   background: #fff;
+}
+
+.header-bkg {
+  background: #fff;
+  padding: 30px 0;
+  margin-bottom: 2rem;
+}
+@media (min-width: 768px) {
+  .header-bkg {
+    padding: 30px 60px;
+  }
+}
+
+.sidebar .widget .widget-recent img {
+  height: auto;
+}
+
+article.content-item .post-content picture:first-child img {
+  margin-bottom: 2rem;
 }

@@ -1,11 +1,15 @@
 <article class="post-prev content-item">
     <div class="entry-media">
         <div class="post-title">
-            <h2>{{ post.title }}</h2>
+            <h2>
+                <a href="/posts/post/{{post.slug}}">
+                    {{ post.title }}
+                </a>
+            </h2>
             <div class="entry-date">
                 <ul>
                     <li>
-                        <a href="#">{# Link to Category #}
+                        <a href="/posts/category/{{post.category.slug}}">
                             {{post.category.name}}
                         </a>
                     </li>
@@ -19,6 +23,11 @@
         <div class="post-content">
             {{ post.featured.render_lazyload|safe }}
             {{ post.content|safe|linebreaksbr|truncatechars_html:155 }}
+            <div class="bubble-line"></div>
+            <br />
+            <h4><strong>
+                <a href="/posts/post/{{post.slug}}">[Read More]</a>
+            </strong></h4>
         </div>
         {% include 'bubble-line.html' %}
         <div class="post-footer">

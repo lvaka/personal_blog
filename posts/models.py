@@ -8,11 +8,17 @@ class Category(models.Model):
     """Category Model to give Posts a Category."""
 
     name = models.CharField(max_length=50, unique=True)
+    slug = models.SlugField(editable=False)
 
     class Meta:
         """How to order category."""
 
         ordering = ['name']
+
+    def save(self, *args, **kwargs):
+        """Slugify before save."""
+        self.slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
     def __str__(self):
         """Category represented by name."""
@@ -44,7 +50,6 @@ class Post(models.Model):
     content = models.TextField()
     tags = models.ManyToManyField('Tag',
                                   blank=True,
-                                  null=True,
                                   related_name='posts')
     category = models.ForeignKey('Category',
                                  on_delete=models.SET_NULL,
@@ -60,7 +65,7 @@ class Post(models.Model):
     class Meta:
         """Order by last modified."""
 
-        ordering = ['last_modified']
+        ordering = ['-publish_date']
 
     def __str__(self):
         """Post represented by title and category."""

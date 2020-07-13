@@ -1,0 +1,10 @@
+<div class="widget-recent">
+    <img class="img-fluid" 
+      src="{{ post.featured.mobile.url }}"
+      alt="{{ post.featured.alt }}"
+    />
+    <h4><a href="/posts/post/{{post.slug}}">{{ post.title }}</a> </h4>
+    <p>
+        {{ post.content|safe|linebreaksbr|truncatechars_html:50 }}
+    </p>
+</div>

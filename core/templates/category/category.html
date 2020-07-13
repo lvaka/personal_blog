@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title%}Welcome | {% endblock %}
-{% block description %}This is a resource for all us nerds that suffer from being socially awkward.{% endblock %}
-{% block content %}
+{% block title%}Posts in {{ category.name }} | {% endblock %}
+{% block description %}Read up on articles in the {{ category.name }} category on Nerd Hax.{% endblock %}
 
+{% block content %}
 <section class="section-content">
     <div class="container">
         <div class="row">
             <div class="col-sm-8 col-md-8 pb-5">
+                <div class="header-bkg">
+                    <h1>
+                        <strong>Posts in {{ category.name }}</strong>
+                    </h1>
+                </div>
                 <div id="posts">
                 <!--Loop through Posts-->
                 <!--Call Through Ajax-->
@@ -16,7 +21,7 @@
                     {% include 'loader-anim.html' %}
                 </div>
                 <div id="load-more">
-                    <button class="button" onClick="loadposts()">
+                    <button class="button" onClick="loadcatposts('{{ category.slug }}')">
                         Load More...
                     </button>
                 </div>
@@ -24,6 +29,7 @@
             <div class="col-sm-4 sidebar">
                 {% include 'about-widget.html' %}
                 {% include 'categories-widget.html' %}
+                {% include 'recent-posts-widget.html' %}
                 {% include 'tags-widget.html' %}
             </div>
         </div>
@@ -33,6 +39,6 @@
 
 {% block scripts %}
 <script>
-  loadposts();
+  loadcatposts('{{ category.slug }}');
 </script>
 {% endblock %}

@@ -5,3 +5,42 @@ $dark-gray: #070722; //Dark gray.  Use for primary Text
 $auburn: #A52422; //Red use for primary color
 $orange: #D98325; // Use for Secondary Color
 $rhythm: #777DA7; //Use for Tertiary Color
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+
+@mixin xs{
+    @media (min-width: #{$breakpoint-xs}){
+        @content;
+    }
+}
+
+/* Small devices (landscape phones, 544px and up) */
+@mixin sm{
+    @media (min-width: #{$breakpoint-sm}){
+        @content;
+    }
+}
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@mixin md{
+    @media (min-width: #{$breakpoint-md}){
+        @content;
+    }
+}
+ 
+/* Large devices (desktops, 992px and up) */
+@mixin lg{
+    @media (min-width: #{$breakpoint-lg}){
+        @content;
+    }
+}
+ 
+/* Extra large devices (large desktops, 1200px and up) */
+@mixin xl{
+    @media (min-width: #{$breakpoint-xl}){
+        @content;
+    }
+}

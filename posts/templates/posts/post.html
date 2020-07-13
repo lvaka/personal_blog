@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{% block title%}{{ post.title }} | {% endblock %}
+{% block description %}{{ post.content|striptags|truncatechars:155 }}{% endblock %}
+
 {% block content %}
 <section class="section-content">
     <div class="container">
@@ -12,7 +15,7 @@
                             <div class="entry-date">
                                 <ul>
                                     <li>
-                                        <a href="#">{# Link to Category #}
+                                        <a href="/posts/category/{{post.category.slug}}">
                                             {{post.category.name}}
                                         </a>
                                     </li>
@@ -45,6 +48,7 @@
             <div class="col-sm-4 sidebar">
                 {% include 'about-widget.html' %}
                 {% include 'categories-widget.html' %}
+                {% include 'recent-posts-widget.html' %}
                 {% include 'tags-widget.html' %}
             </div>
         </div>

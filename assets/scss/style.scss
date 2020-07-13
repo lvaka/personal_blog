@@ -30,3 +30,21 @@
     margin: 2rem 0;
     background: #fff;
 }
+
+.header-bkg{
+    background: #fff;
+    padding: 30px 0;
+    margin-bottom: 2rem;
+
+    @include md{
+        padding: 30px 60px;
+    }
+}
+
+.sidebar .widget .widget-recent img{
+    height: auto;
+}
+
+article.content-item .post-content picture:first-child img{
+    margin-bottom: 2rem;
+}

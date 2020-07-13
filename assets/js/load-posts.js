@@ -44,4 +44,31 @@ const loadposts = () => {
   }
 }
 
+const loadcatposts = category => {
+  let posts, nextpage
+  const postsContainer = document.getElementById('posts')
+  if (window.page) {
+    showLoader()
+    axios.get(`/posts/category-posts?category=${category}&page=${window.page}`)
+      .then(res => {
+        posts = res.data.posts.trim()
+        nextpage = res.data.next_page
+        const domparser = new DOMParser()
+        const parsedText = domparser.parseFromString(posts, 'text/html')
+        const postElems = parsedText.querySelectorAll('.post-prev')
+        for (const post of postElems) {
+          postsContainer.appendChild(post)
+        }
+        window.page = nextpage
+        if (!window.page) {
+          hideLoadmoreButton()
+        }
+      })
+      .then(() => hideLoader())
+      .then(() => progressiveLoad())
+      .catch(e => console.log(e))
+  }
+}
+
 window.loadposts = loadposts
+window.loadcatposts = loadcatposts

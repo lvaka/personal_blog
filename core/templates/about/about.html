@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title%}About Nerd Hax{% endblock %}
 {% block description%}
 I started this site because I started seeing 
@@ -19,7 +20,9 @@ themselves canceled.
                         </div>
                         <div class="bubble-line"></div>
                             <div class="post-content about">
-                                <img src="images/content/about1.jpg" alt="image">
+                                <img src="{% static 'images/no-fakeshit.jpg' %}" alt="neon sign displaying no fake shit"
+                                    class="mb-4"
+                                >
                                 <h2>
                                     Your mission, if you choose you accept it, 
                                     is to be your awesome self and engange with 
