@@ -2,7 +2,6 @@ import axios from 'axios'
 const widgetTags = document.querySelector('#tags-widget .widget-tags')
 
 const generateTags = tags => {
-  console.log(tags)
   for (const tag of tags) {
     const aTag = document.createElement('a')
     aTag.href = `/posts/tag/${tag}`

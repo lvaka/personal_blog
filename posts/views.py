@@ -5,6 +5,7 @@ from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.template.loader import render_to_string
 from django.http import JsonResponse
+from django.db.models import Q
 from posts.models import Post, Category, Tag
 
 
@@ -142,3 +143,39 @@ def ajax_tag_posts(request):
                 'next_page': next_page}
 
     return JsonResponse(json)
+
+
+def search_request(request):
+    """Get posts based on search."""
+    search_query = request.GET.get('s')
+    page = request.GET.get('page')
+
+    posts = Post.objects.filter(Q(title__icontains=search_query) |
+                                Q(tags__tagname__icontains=search_query) |
+                                Q(category__name__icontains=search_query))
+    json = {}
+
+    if(posts):
+        paginator = Paginator(posts, 5)
+        page_number = page if page else 1
+        page_obj = paginator.get_page(page_number)
+        next_page = ''
+        if page_obj.has_next():
+            next_page = page_obj.next_page_number()
+        post_list = render_to_string('posts/posts.html',
+                                     {'page_obj': page_obj})
+        json = {'posts': post_list,
+                'next_page': next_page}
+
+        return JsonResponse(json)
+
+    return JsonResponse({'posts': '', 'next_page': ''})
+
+
+def search_page(request):
+    """Tag Page view."""
+    s = request.GET.get('s')
+
+    return render(request,
+                  'search/search-page.html',
+                  {'s': s})

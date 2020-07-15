@@ -28,4 +28,6 @@ urlpatterns = [
     path('recent', views.ajax_recent_posts, name='recent posts'),
     path('category-posts', views.ajax_category_posts, name='category posts'),
     path('tag-posts', views.ajax_tag_posts, name='tag posts'),
+    path('search-query', views.search_request, name='search query'),
+    path('search', views.search_page, name='search page'),
 ]

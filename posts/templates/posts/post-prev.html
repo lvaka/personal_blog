@@ -22,6 +22,9 @@
         {% include 'bubble-line.html' %}
         <div class="post-content">
             {{ post.featured.render_lazyload|safe }}
+            <h5 class="mt-0 mb-3">
+              By: {{ post.author.first_name }} {{ post.author.last_name }}
+            </h5>
             {{ post.content|safe|linebreaksbr|truncatechars_html:155 }}
             <div class="bubble-line"></div>
             <br />

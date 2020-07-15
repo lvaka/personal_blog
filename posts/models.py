@@ -1,6 +1,7 @@
 """Posts Models."""
 from django.db import models
 from django.utils.text import slugify
+from django.contrib.auth.models import User
 from media.models import Media
 
 
@@ -38,6 +39,8 @@ class Tag(models.Model):
 class Post(models.Model):
     """Blog Post Model."""
 
+    author = models.ForeignKey(User,
+                               on_delete=models.CASCADE)
     title = models.CharField(max_length=30, unique=True)
     slug = models.SlugField(editable=False)
     featured = models.ForeignKey(Media,

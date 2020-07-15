@@ -1,6 +1,7 @@
+{% load static %}
 <header id="header">
-    <div class="logo" data-bg-image="images/bg-header.jpg">
-        <a href="/">Nerd Hax</a>
+    <div class="logo" data-bg-image="{% static 'images/scooters.jpg' %}">
+        <a href="/"><h1>Nerd Hax</h1></a>
         <p>A guide for the socially awkward</p>
     </div>
     <div class="menu-container">
@@ -21,9 +22,10 @@
                     </nav>
                 </div>
                 <div class=" col-md-5 h-search">
-                    <form class="search_form" method="POST">
-                        {% csrf_token %}
-                        <input type="text" name="2" placeholder="Search and hit enter...">
+                    <form class="search_form" 
+                          method="GET" 
+                          action="{% url 'search page' %}">
+                        <input type="text" name="s" placeholder="Search and hit enter...">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
                 </div>
