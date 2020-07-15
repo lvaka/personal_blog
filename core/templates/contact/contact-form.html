@@ -1,0 +1,24 @@
+<div class="contact-row">
+  <form method="POST" action="{% url 'contact' %}">
+    {% csrf_token %}
+    <div class="contact-form" data-children-count="4">
+      <p>NAME (required)</p>
+      <input type="text" name="name" maxlength="64" required>
+      <p>E-MAIL(required)</p>
+      <input type="email" name="email" maxlength="64" required>
+      <p>SUBJECT</p>
+      <input type="text" name="subject" maxlength="30" required>
+      <p>MESSAGE</p>
+      <textarea placeholder="" name="message" required></textarea>
+      {% if message %}
+        <h5>{{ message }}</h5>
+      {% endif %}
+      {% if errors %}
+        <h5>{{ errors }}</h5>
+      {% endif %}
+    </div>
+    <div class="contact-submit">
+      <input class="button" type="submit" value="Send Message"/>
+    </div>
+  </form>
+</div>

@@ -1,7 +1,45 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}{% endblock %}
-{% block description %}{% endblock %}
+{% block title%}Contact Us | {% endblock %}
+{% block description %}Get in contact with someone at Nerd Hax.{% endblock %}
 
 {% block content %}
+<section class="section-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-md-8 pb-5">
+              <article class="contact-media">
+                <h2 class="contact-media-title">
+                  Contact
+                </h2>
+                {% include 'bubble-line.html' %}
+                <div class="contact-content">
+                  <img src="{% static 'images/contact.jpg' %}"
+                       alt="mobile phone"/>
+                  <h3>Want to reach out and ask some questions?</h3>
+                  <p>
+                    I try to answer every single message and respond 
+                    in kind.  I thank you for your interest in this 
+                    resource.
+                  </p>
+                  {% include 'contact/contact-form.html' %}    
+                </div>
+              </article>
+            </div>
+            <div class="col-sm-4 sidebar">
+                {% include 'about-widget.html' %}
+                {% include 'categories-widget.html' %}
+                {% include 'recent-posts-widget.html' %}
+                {% include 'tags-widget.html' %}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+  loadtagposts('{{ tag.tagname }}');
+</script>
 {% endblock %}

@@ -11,10 +11,10 @@
                     <nav class="main-nav">
                         <ul>
                             <li class="current-menu-item menu-item-has-children">
-                                <a href="/">Home</a>
+                                <a href="{% url 'home' %}">Home</a>
                             </li>
-                            <li><a href="/about">About</a></li>
-                            <li><a href="contacts.html">Contact</a></li>
+                            <li><a href="{% url 'about' %}">About</a></li>
+                            <li><a href="{% url 'contact' %}">Contact</a></li>
                         </ul>
                         <a href="javascript:;" id="close-menu">
                             <i class="fa fa-close"></i>
