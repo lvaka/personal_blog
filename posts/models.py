@@ -41,7 +41,7 @@ class Post(models.Model):
 
     author = models.ForeignKey(User,
                                on_delete=models.CASCADE)
-    title = models.CharField(max_length=30, unique=True)
+    title = models.CharField(max_length=60, unique=True)
     slug = models.SlugField(editable=False)
     featured = models.ForeignKey(Media,
                                  on_delete=models.SET_NULL,
