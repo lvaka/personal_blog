@@ -5,3 +5,4 @@ db.sqlite3
 env/
 public/media/
 tmp/
+.DS_Store
