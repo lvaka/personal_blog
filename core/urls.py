@@ -28,5 +28,6 @@ urlpatterns = [
          name='about'),
     path('contact',
          views.contact,
-         name='contact')
+         name='contact'),
+    path('sitemap.xml', views.xml_sitemap, name='sitemap')
 ]

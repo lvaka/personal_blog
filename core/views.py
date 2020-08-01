@@ -2,6 +2,7 @@
 from django.shortcuts import render
 from django.core.mail import send_mail
 from core.forms import EmailForm
+from posts import models
 
 
 def contact(request):
@@ -37,3 +38,19 @@ def contact(request):
                   'contact/contact.html',
                   {'errors': errors,
                    'message': success})
+
+
+def xml_sitemap(request):
+    """Create an XML Sitemap."""
+    posts = models.Post.objects.all()
+    latest_post = posts[:1].get()
+    categories = models.Category.objects.all()
+    tags = models.Tag.objects.all()
+
+    return render(request,
+                  'sitemap.xml',
+                  {'latest_post': latest_post,
+                   'posts': posts,
+                   'categories': categories,
+                   'tags': tags},
+                  content_type="application/xhtml+xml")
