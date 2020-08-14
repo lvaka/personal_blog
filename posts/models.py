@@ -10,6 +10,7 @@ class Category(models.Model):
 
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(editable=False)
+    description = models.TextField(null=True, blank=True)
 
     class Meta:
         """How to order category."""

@@ -6,3 +6,4 @@ env/
 public/media/
 tmp/
 .DS_Store
+migrations/

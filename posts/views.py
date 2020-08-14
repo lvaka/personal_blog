@@ -19,10 +19,8 @@ def post(request, slug):
 def ajax_posts(request):
     """Get Multiple Posts, Return JSON."""
     today = timezone.now()
-    print(today)
     posts = Post.objects.filter(publish_date__isnull=False,
                                 publish_date__lte=today)
-    print(posts)
     paginator = Paginator(posts, 5)
 
     page = request.GET.get('page')
